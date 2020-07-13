@@ -7,3 +7,6 @@ header = {
 }
 
 session = Session()
+a = session.get(url)
+
+print(a)
