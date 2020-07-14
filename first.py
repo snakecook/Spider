@@ -46,6 +46,7 @@ url_js = base_url + re.findall('(/js/encrypt.*?)">',a)[0]
 # # print(js_func)
 
 JS_code = session.get(url_js).text
+print(JS_code)
 param = re.findall('var param = (.*?)\(m',JS_code)[0]
 visit_key = re.findall('data: {(.*?):',JS_code)[0].strip()
 data_decode = re.findall('\nfunction (.*?)\(data\)',JS_code)[0]
@@ -60,11 +61,12 @@ with open('JS_updata.js','w',encoding='utf-8') as f2:
 # 执行JS代码
 node = execjs.get(execjs.runtime_names.Node)
 # Params
-method = 'GETDETAIL'
+# method = 'GETDETAIL'
+method = 'GETCITYWEATHER'
 city = '昆明'
-type = 'HOUR'
-start_time = '2020-03-25 00:00:00'
-end_time = '2020-04-25 00:00:00'
+type = 'DAY'
+start_time = '2020-05-20 00:00:00'
+end_time = '2020-06-30 00:00:00'
 
 # Compile javascript
 file = 'JS_updata.js'

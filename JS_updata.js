@@ -1669,17 +1669,17 @@ CryptoJS.mode.ECB = function () {
     h.TripleDES = e._createHelper(g)
 })();
 
-const  ask7fCCg4w58 = "amHRN2b2LmrjF27O";//AESkey，可自定义
-const  asiZNTa7Z6b9 = "b2x30x7OvpSCLPf3";//密钥偏移量IV，可自定义
+const  asko6MF8Meun = "axVwGP6UjlWw8hJG";//AESkey，可自定义
+const  asiIfPUzhlQf = "bhlXnDhO7m3MKD1e";//密钥偏移量IV，可自定义
 
-const  ackqjWspWx8r = "dFyg0alwAgOJV85g";//AESkey，可自定义
-const  aciN4OKw7Dal = "fjEQevmRcvEnCYZG";//密钥偏移量IV，可自定义
+const  ackxxSFtjcVz = "d9ekGEV0WWGjAVMf";//AESkey，可自定义
+const  acizO22r1RJd = "foqmG1JIl7GWryXd";//密钥偏移量IV，可自定义
 
-const  dskijn6qPhrJ = "hs3Js63EaedZNQb4";//DESkey，可自定义
-const  dsiJUtgVtpwq = "xqAYSsQVj2vL1q6D";//密钥偏移量IV，可自定义
+const  dskQrZfPNQwD = "hogWGzD822ZBVbIj";//DESkey，可自定义
+const  dsiudqDbahEj = "xg3jQHNHWMxaOu6F";//密钥偏移量IV，可自定义
 
-const  dckQgE3OyiYw = "oXa064u3gOCO7pLB";//DESkey，可自定义
-const  dciIWTreSZFH = "p3sp18cNaXHn5Dbi";//密钥偏移量IV，可自定义
+const  dck2jCmGxQip = "osYcnVtmd3t6KnAI";//DESkey，可自定义
+const  dciQvUYHTDPj = "pkRsMDVQ6r3DmSDg";//密钥偏移量IV，可自定义
 
 const aes_local_key = 'emhlbnFpcGFsbWtleQ==';
 const aes_local_iv = 'emhlbnFpcGFsbWl2';
@@ -1817,13 +1817,13 @@ function ObjectSort(obj) {
     });
     return newObject;
 }
-function dnQ8bo9oXDyR(data) {
-    data = AES.decrypt(data, ask7fCCg4w58, asiZNTa7Z6b9);
-    data = DES.decrypt(data, dskijn6qPhrJ, dsiJUtgVtpwq);
+function dit3dCnhQ8v6RTTKLp(data) {
+    data = AES.decrypt(data, asko6MF8Meun, asiIfPUzhlQf);
+    data = DES.decrypt(data, dskQrZfPNQwD, dsiudqDbahEj);
     data = BASE64.decrypt(data);
     return data;
 }
-var pgD26rcUCl2 = (function(){
+var pcaVuii86QbiF9b = (function(){
 
 function ObjectSort(obj){
     var newObject = {};
@@ -1833,7 +1833,7 @@ function ObjectSort(obj){
     return newObject;
 }
 return function(method, obj){
-    var appId = '4d30236223db5f4c9f7988ca502fd3ee';
+    var appId = '25e2b8c3536a2dd549528ab195ac13c2';
     var clienttype = 'WEB';
     var timestamp = new Date().getTime();
     // console.log(method, obj,ObjectSort(obj),appId + method + timestamp + 'WEIXIN' + JSON.stringify(ObjectSort(obj)));
@@ -1846,23 +1846,23 @@ return function(method, obj){
       secret: hex_md5(appId + method + timestamp + clienttype + JSON.stringify(ObjectSort(obj)))
     };
     param = BASE64.encrypt(JSON.stringify(param));
-    param = DES.encrypt(param, dckQgE3OyiYw, dciIWTreSZFH);
+    param = DES.encrypt(param, dck2jCmGxQip, dciQvUYHTDPj);
     return param;
 };
 })();
 
-function sJ1x7mXd4HbI1ui6HYHq(method, object, callback, period) {
+function s2j80cTGSuNxPA8kqJ5j(method, object, callback, period) {
     const key = hex_md5(method + JSON.stringify(object));
 
     const data = getDataFromLocalStorage(key, period);
     if (!data) {
-        var param = pgD26rcUCl2(method, object);
+        var param = pcaVuii86QbiF9b(method, object);
         $.ajax({
             url: '../apinew/aqistudyapi.php',
-            data: { hkSCZv2LH: param },
+            data: { hst676jnU: param },
             type: "post",
             success: function (data) {
-                data = dnQ8bo9oXDyR(data);
+                data = dit3dCnhQ8v6RTTKLp(data);
                 obj = JSON.parse(data);
                 if (obj.success) {
                     if (period > 0) {
@@ -1886,5 +1886,5 @@ function getPostParamCode(method, city, type, startTime, endTime) {
     param.type = type;
     param.startTime = startTime;
     param.endTime = endTime;
-    return pgD26rcUCl2(method, param);
+    return pcaVuii86QbiF9b(method, param);
 }
