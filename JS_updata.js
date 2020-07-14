@@ -1669,121 +1669,119 @@ CryptoJS.mode.ECB = function () {
     h.TripleDES = e._createHelper(g)
 })();
 
+const  ask7fCCg4w58 = "amHRN2b2LmrjF27O";//AESkey，可自定义
+const  asiZNTa7Z6b9 = "b2x30x7OvpSCLPf3";//密钥偏移量IV，可自定义
 
+const  ackqjWspWx8r = "dFyg0alwAgOJV85g";//AESkey，可自定义
+const  aciN4OKw7Dal = "fjEQevmRcvEnCYZG";//密钥偏移量IV，可自定义
 
-const askCeDMEmKV9 = "a6wX4s17qDdmJaVd";//AESkey，可自定义
-const asiX8Zw70vau = "bVgeDFfyzGcr00pA";//密钥偏移量IV，可自定义
+const  dskijn6qPhrJ = "hs3Js63EaedZNQb4";//DESkey，可自定义
+const  dsiJUtgVtpwq = "xqAYSsQVj2vL1q6D";//密钥偏移量IV，可自定义
 
-const ackj60eGyzxP = "dlfL5iVzOUUr4HwP";//AESkey，可自定义
-const aciFdVfAG4rf = "fItdkmlcDitT3nBV";//密钥偏移量IV，可自定义
-
-const dskflhvHE6UV = "hK54qRxgdRorvAFZ";//DESkey，可自定义
-const dsi6ilUaaLHj = "xqZo2Dh4GPuYpKM9";//密钥偏移量IV，可自定义
-
-const dckpM1itMBb6 = "o2wWKBASpMO00bYY";//DESkey，可自定义
-const dci7HwXFgPps = "pvYDae95r7airyvm";//密钥偏移量IV，可自定义
+const  dckQgE3OyiYw = "oXa064u3gOCO7pLB";//DESkey，可自定义
+const  dciIWTreSZFH = "p3sp18cNaXHn5Dbi";//密钥偏移量IV，可自定义
 
 const aes_local_key = 'emhlbnFpcGFsbWtleQ==';
 const aes_local_iv = 'emhlbnFpcGFsbWl2';
 
 var BASE64 = {
-    encrypt: function (text) {
+    encrypt: function(text) {
         var b = new Base64();
         return b.encode(text);
     },
-    decrypt: function (text) {
+    decrypt: function(text) {
         var b = new Base64();
         return b.decode(text);
     }
 };
 
 var DES = {
-    encrypt: function (text, key, iv) {
-        var secretkey = (CryptoJS.MD5(key).toString()).substr(0, 16);
-        var secretiv = (CryptoJS.MD5(iv).toString()).substr(24, 8);
-        secretkey = CryptoJS.enc.Utf8.parse(secretkey);
-        secretiv = CryptoJS.enc.Utf8.parse(secretiv);
-        var result = CryptoJS.DES.encrypt(text, secretkey, {
-            iv: secretiv,
-            mode: CryptoJS.mode.CBC,
-            padding: CryptoJS.pad.Pkcs7
-        });
-        return result.toString();
-    },
-    decrypt: function (text, key, iv) {
-        var secretkey = (CryptoJS.MD5(key).toString()).substr(0, 16);
-        var secretiv = (CryptoJS.MD5(iv).toString()).substr(24, 8);
-        secretkey = CryptoJS.enc.Utf8.parse(secretkey);
-        secretiv = CryptoJS.enc.Utf8.parse(secretiv);
-        var result = CryptoJS.DES.decrypt(text, secretkey, {
-            iv: secretiv,
-            mode: CryptoJS.mode.CBC,
-            padding: CryptoJS.pad.Pkcs7
-        });
-        return result.toString(CryptoJS.enc.Utf8);
-    }
+ encrypt: function(text, key, iv){
+    var secretkey = (CryptoJS.MD5(key).toString()).substr(0, 16);
+    var secretiv = (CryptoJS.MD5(iv).toString()).substr(24, 8);
+    secretkey = CryptoJS.enc.Utf8.parse(secretkey);
+    secretiv = CryptoJS.enc.Utf8.parse(secretiv);
+    var result = CryptoJS.DES.encrypt(text, secretkey, {
+      iv: secretiv,
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.Pkcs7
+    });
+    return result.toString();
+ },
+ decrypt: function(text, key, iv){
+    var secretkey = (CryptoJS.MD5(key).toString()).substr(0, 16);
+    var secretiv = (CryptoJS.MD5(iv).toString()).substr(24, 8);
+    secretkey = CryptoJS.enc.Utf8.parse(secretkey);
+    secretiv = CryptoJS.enc.Utf8.parse(secretiv);
+    var result = CryptoJS.DES.decrypt(text, secretkey, {
+      iv: secretiv,
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.Pkcs7
+    });
+    return result.toString(CryptoJS.enc.Utf8);
+  }
 };
 
 var AES = {
-    encrypt: function (text, key, iv) {
-        var secretkey = (CryptoJS.MD5(key).toString()).substr(16, 16);
-        var secretiv = (CryptoJS.MD5(iv).toString()).substr(0, 16);
-        // console.log('real key:', secretkey);
-        // console.log('real iv:', secretiv);
-        secretkey = CryptoJS.enc.Utf8.parse(secretkey);
-        secretiv = CryptoJS.enc.Utf8.parse(secretiv);
-        var result = CryptoJS.AES.encrypt(text, secretkey, {
-            iv: secretiv,
-            mode: CryptoJS.mode.CBC,
-            padding: CryptoJS.pad.Pkcs7
-        });
-        return result.toString();
-    },
-    decrypt: function (text, key, iv) {
-        var secretkey = (CryptoJS.MD5(key).toString()).substr(16, 16);
-        var secretiv = (CryptoJS.MD5(iv).toString()).substr(0, 16);
-        secretkey = CryptoJS.enc.Utf8.parse(secretkey);
-        secretiv = CryptoJS.enc.Utf8.parse(secretiv);
-        var result = CryptoJS.AES.decrypt(text, secretkey, {
-            iv: secretiv,
-            mode: CryptoJS.mode.CBC,
-            padding: CryptoJS.pad.Pkcs7
-        });
-        return result.toString(CryptoJS.enc.Utf8);
-    }
+  encrypt: function(text, key, iv) {
+    var secretkey = (CryptoJS.MD5(key).toString()).substr(16, 16);
+    var secretiv = (CryptoJS.MD5(iv).toString()).substr(0, 16);
+    // console.log('real key:', secretkey);
+    // console.log('real iv:', secretiv);
+    secretkey = CryptoJS.enc.Utf8.parse(secretkey);
+    secretiv = CryptoJS.enc.Utf8.parse(secretiv);
+    var result = CryptoJS.AES.encrypt(text, secretkey, {
+      iv: secretiv,
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.Pkcs7
+    });
+    return result.toString();
+  },
+  decrypt: function(text, key, iv) {
+    var secretkey = (CryptoJS.MD5(key).toString()).substr(16, 16);
+    var secretiv = (CryptoJS.MD5(iv).toString()).substr(0, 16);
+    secretkey = CryptoJS.enc.Utf8.parse(secretkey);
+    secretiv = CryptoJS.enc.Utf8.parse(secretiv);
+    var result = CryptoJS.AES.decrypt(text, secretkey, {
+      iv: secretiv,
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.Pkcs7
+    });
+    return result.toString(CryptoJS.enc.Utf8);
+  }
 };
 
 var localStorageUtil = {
-    save: function (name, value) {
-        var text = JSON.stringify(value);
-        text = BASE64.encrypt(text);
-        text = AES.encrypt(text, aes_local_key, aes_local_iv);
-        try {
-            localStorage.setItem(name, text);
-        } catch (oException) {
-            if (oException.name === 'QuotaExceededError') {
-                console.log('超出本地存储限额！');
-                localStorage.clear();
-                localStorage.setItem(name, text);
-            }
-        }
-    },
-    check: function (name) {
-        return localStorage.getItem(name);
-    },
-    getValue: function (name) {
-        var text = localStorage.getItem(name);
-        var result = null;
-        if (text) {
-            text = AES.decrypt(text, aes_local_key, aes_local_iv);
-            text = BASE64.decrypt(text);
-            result = JSON.parse(text);
-        }
-        return result;
-    },
-    remove: function (name) {
-        localStorage.removeItem(name);
+  save: function(name, value) {
+    var text = JSON.stringify(value);
+    text = BASE64.encrypt(text);
+    text = AES.encrypt(text, aes_local_key, aes_local_iv);
+    try {
+      localStorage.setItem(name, text);
+    } catch (oException) {
+      if (oException.name === 'QuotaExceededError') {
+        console.log('超出本地存储限额！');
+        localStorage.clear();
+        localStorage.setItem(name, text);
+      }
     }
+  },
+  check: function(name) {
+    return localStorage.getItem(name);
+  },
+  getValue: function(name) {
+    var text = localStorage.getItem(name);
+    var result = null;
+    if (text) {
+      text = AES.decrypt(text, aes_local_key, aes_local_iv);
+      text = BASE64.decrypt(text);
+      result = JSON.parse(text);
+    }
+    return result;
+  },
+  remove: function(name) {
+    localStorage.removeItem(name);
+  }
 };
 
 // console.log('base64', BASE64.encrypt('key'));
@@ -1802,11 +1800,11 @@ function getDataFromLocalStorage(key, period) {
             period = 1;
         }
         if (current - (period * 60 * 60 * 1000) > time) { // 更新
-            data = null;
+           data = null;
         }
         // 防止1-5点用户不打开页面，跨天的情况
         if (new Date().getHours() >= 5 && new Date(time).getDate() !== new Date().getDate() && period === 24) {
-            data = null;
+           data = null;
         }
     }
     return data;
@@ -1814,65 +1812,62 @@ function getDataFromLocalStorage(key, period) {
 
 function ObjectSort(obj) {
     var newObject = {};
-    Object.keys(obj).sort().map(function (key) {
+    Object.keys(obj).sort().map(function(key){
+      newObject[key] = obj[key];
+    });
+    return newObject;
+}
+function dnQ8bo9oXDyR(data) {
+    data = AES.decrypt(data, ask7fCCg4w58, asiZNTa7Z6b9);
+    data = DES.decrypt(data, dskijn6qPhrJ, dsiJUtgVtpwq);
+    data = BASE64.decrypt(data);
+    return data;
+}
+var pgD26rcUCl2 = (function(){
+
+function ObjectSort(obj){
+    var newObject = {};
+    Object.keys(obj).sort().map(function(key){
         newObject[key] = obj[key];
     });
     return newObject;
 }
-
-function duR28VocVFlaJT9E7prw(data) {
-    data = AES.decrypt(data, askCeDMEmKV9, asiX8Zw70vau);
-    data = DES.decrypt(data, dskflhvHE6UV, dsi6ilUaaLHj);
-    data = BASE64.decrypt(data);
-    return data;
-}
-
-var p5EKhF7ADu = (function () {
-
-    function ObjectSort(obj) {
-        var newObject = {};
-        Object.keys(obj).sort().map(function (key) {
-            newObject[key] = obj[key];
-        });
-        return newObject;
-    }
-
-    return function (method, obj) {
-        var appId = 'f6b2251a17ce2ed8859123251e62ca41';
-        var clienttype = 'WEB';
-        var timestamp = new Date().getTime();
-        // console.log(method, obj,ObjectSort(obj),appId + method + timestamp + 'WEIXIN' + JSON.stringify(ObjectSort(obj)));
-        var param = {
-            appId: appId,
-            method: method,
-            timestamp: timestamp,
-            clienttype: clienttype,
-            object: obj,
-            secret: hex_md5(appId + method + timestamp + clienttype + JSON.stringify(ObjectSort(obj)))
-        };
-        param = BASE64.encrypt(JSON.stringify(param));
-
-        return param;
+return function(method, obj){
+    var appId = '4d30236223db5f4c9f7988ca502fd3ee';
+    var clienttype = 'WEB';
+    var timestamp = new Date().getTime();
+    // console.log(method, obj,ObjectSort(obj),appId + method + timestamp + 'WEIXIN' + JSON.stringify(ObjectSort(obj)));
+    var param = {
+      appId: appId,
+      method: method,
+      timestamp: timestamp,
+      clienttype: clienttype,
+      object: obj,
+      secret: hex_md5(appId + method + timestamp + clienttype + JSON.stringify(ObjectSort(obj)))
     };
+    param = BASE64.encrypt(JSON.stringify(param));
+    param = DES.encrypt(param, dckQgE3OyiYw, dciIWTreSZFH);
+    return param;
+};
 })();
 
-function sShNu4gAE8M1GODD(method, object, callback, period) {
+function sJ1x7mXd4HbI1ui6HYHq(method, object, callback, period) {
     const key = hex_md5(method + JSON.stringify(object));
 
     const data = getDataFromLocalStorage(key, period);
     if (!data) {
-        var param = p5EKhF7ADu(method, object);
+        var param = pgD26rcUCl2(method, object);
         $.ajax({
             url: '../apinew/aqistudyapi.php',
-            data: {h1Uws0rPL: param},
+            data: { hkSCZv2LH: param },
             type: "post",
             success: function (data) {
-                data = duR28VocVFlaJT9E7prw(data);
+                data = dnQ8bo9oXDyR(data);
                 obj = JSON.parse(data);
                 if (obj.success) {
                     if (period > 0) {
-                        obj.result.time = new Date().getTime(); // 添加当前时间
-                        localStorageUtil.save(key, obj.result);
+                      obj.result.time = new Date().getTime(); // 添加当前时间
+                      localStorageUtil.save(key, obj.result);
                     }
                     callback(obj.result);
                 } else {
@@ -1891,5 +1886,5 @@ function getPostParamCode(method, city, type, startTime, endTime) {
     param.type = type;
     param.startTime = startTime;
     param.endTime = endTime;
-    return p5EKhF7ADu(method, param);
+    return pgD26rcUCl2(method, param);
 }
