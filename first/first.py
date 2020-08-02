@@ -4,7 +4,7 @@ import re
 import execjs
 
 
-with open('Js_safe.js','r',encoding='utf-8') as f1:
+with open('JS_safe.js', 'r', encoding='utf-8') as f1:
     JS_safe = f1.read()
 
 call_Func = '''
@@ -52,7 +52,7 @@ visit_key = re.findall('data: {(.*?):',JS_code)[0].strip()
 data_decode = re.findall('\nfunction (.*?)\(data\)',JS_code)[0]
 call_Func = call_Func %(param)
 
-with open('JS_updata.js','w',encoding='utf-8') as f2:
+with open('JS_updata.js', 'w', encoding='utf-8') as f2:
     f2.write(JS_safe)
     f2.write(JS_code)
     f2.write(call_Func)
